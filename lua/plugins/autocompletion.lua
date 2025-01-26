@@ -38,8 +38,9 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
-				["<Tab>"] = cmp.mapping.select_next_item(),
+				-- ["<Tab>"] = cmp.mapping.select_next_item(),
 
 				["<C-Space>"] = cmp.mapping.complete({}),
 
