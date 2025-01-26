@@ -1,6 +1,3 @@
-Here’s an updated version of the README, now considering that users might install and uninstall this Neovim configuration on **Windows**, **Mac**, and **Linux** systems. The commands are tailored for each platform where applicable.
-
----
 
 # 🚀 Neovim Configuration
 
