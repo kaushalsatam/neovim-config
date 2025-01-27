@@ -140,5 +140,5 @@ return {
 		end,
 	},
 	require("plugins.lsps.flutter-tools"),
-	require("plugins.lsps.tailwind-tools"),
+	require("plugins.lsps.tailwindcss-tools"),
 }
