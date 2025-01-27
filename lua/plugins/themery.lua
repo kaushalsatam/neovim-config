@@ -35,9 +35,9 @@ return {
 			livePreview = true,
 			vim.keymap.set(
 				"n",
-				"<leader>tt",
+				"<leader>tc",
 				":Themery<CR>",
-				{ noremap = true, silent = true, desc = "[T]oggle [T]hemery" }
+				{ noremap = true, silent = true, desc = "[T]oggle [C]olorscheme Themery" }
 			),
 		})
 	end,
