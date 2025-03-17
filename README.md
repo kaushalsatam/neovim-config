@@ -1,7 +1,7 @@
 
 # 🚀 Neovim Configuration
 
-Welcome to my **Neovim Configuration** repository! This setup is inspired by [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and is designed to offer an intuitive and modular experience for developers new to Neovim or those looking to enhance their workflow. It is cross-platform and works seamlessly on **Linux**, **macOS**, and **Windows**.
+This setup is inspired by [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and is designed to offer an intuitive and modular experience for developers new to Neovim or those looking to enhance their workflow. It is cross-platform and works seamlessly on **Linux**, **macOS**, and **Windows**.
 
 ---
 
@@ -14,7 +14,8 @@ The configuration is structured as follows:
 ├── init.lua          # Entry point for the configuration
 ├── lua/
 │   ├── config/       # Custom configurations
-│   └── plugins.lua   # Plugin definitions
+│   ├── plugins/       # Plugins directory
+│       └── plugins.lua   # Plugin definitions
 ├── .luarc.json       # Lua Language Server settings
 ```
 
