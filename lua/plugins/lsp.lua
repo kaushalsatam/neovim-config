@@ -11,12 +11,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "williamboman/mason.nvim", opts = {} },
-			"williamboman/mason-lspconfig.nvim",
+			{ "mason-org/mason.nvim", opts = {} },
+			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
 			{ "j-hui/fidget.nvim", opts = {} },
-
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
@@ -29,25 +27,17 @@ return {
 					end
 
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-
 					map(
 						"<leader>ws",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"[W]orkspace [S]ymbols"
 					)
-
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
-
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -96,22 +86,7 @@ return {
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
-				-- clangd = {},
-				-- gopls = {},
-				-- pyright = {},
-				-- rust_analyzer = {},
-				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
-
 				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							completion = {
@@ -133,12 +108,14 @@ return {
 					function(server_name)
 						local server = servers[server_name] or {}
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+
+						-- Update from deprecated require('lspconfig') to vim.lsp.config
+						vim.lsp.config[server_name].setup(server)
 					end,
 				},
 			})
 		end,
 	},
 	require("plugins.lsps.flutter-tools"),
-	require("plugins.lsps.tailwindcss-tools"),
+	require("plugins.lsps.tailwindcss-colorizer-cmp"),
 }
